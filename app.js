@@ -5,7 +5,7 @@ let msgContainer=document.querySelector('.msg-container')
 let msg=document.querySelector('#msg')
 let turnO=true;
 
-const winPatterns=[//predicting win patterns
+const winPatterns=[        //predicting win patterns
     [0,1,2],
     [0,3,6],
     [0,4,8],
