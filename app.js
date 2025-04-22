@@ -1,11 +1,11 @@
-let boxes = document.querySelectorAll(".box");
+let boxes = document.querySelectorAll(".box");//dom module changes
 let resetBtn=document.querySelector("#reset-btn")
 let newGameBtn = document.querySelector('#new-btn')
 let msgContainer=document.querySelector('.msg-container')
 let msg=document.querySelector('#msg')
 let turnO=true;
 
-const winPatterns=[
+const winPatterns=[//predicting win patterns
     [0,1,2],
     [0,3,6],
     [0,4,8],
@@ -16,14 +16,14 @@ const winPatterns=[
     [6,7,8]
 ];
 
-const resetGame=()=>{
+const resetGame=()=>{               //reset function
     turnO=true;
     enableBoxes();
     msgContainer.classList.add('hide');
 }
 
 
-boxes.forEach((box)=>{
+boxes.forEach((box)=>{                  //check each box for win patterns
     box.addEventListener("click",()=>{
         if(turnO){
             box.innerText="O";
@@ -38,24 +38,24 @@ boxes.forEach((box)=>{
     }); 
 });
 
-const disableBoxes=()=>{
+const disableBoxes=()=>{      //disable boxes after win prediction
     for(let box of boxes){
         box.disabled=true;
     }
 }
-const enableBoxes=()=>{
+const enableBoxes=()=>{          //enable after reset game
     for(let box of boxes){
         box.disabled=false;
         box.innerText='';
     }
 }
-const showWinner = (winner) =>{
+const showWinner = (winner) =>{       //showing the winner
     msg.innerText=`Congrats winner is ${winner}`;
     msgContainer.classList.remove('hide');
     disableBoxes();
 
 }
-const checkWinner=()=>{
+const checkWinner=()=>{                //to find the winner
     for(let pattern of winPatterns){
         let pos1val=boxes[pattern[0]].innerText;
         let pos2val=boxes[pattern[1]].innerText;
